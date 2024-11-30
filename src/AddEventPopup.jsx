@@ -38,99 +38,110 @@ const AddEventPopup = ({ onClose }) => {
   return (
     <>
       <ToastContainer position="top-right" autoClose={3000} /> {/* Toast Container */}
-      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-        <div className="bg-white p-6 rounded shadow-lg w-96">
-          <h2 className="text-xl font-bold mb-4">Add Event</h2>
+<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+  <div className="bg-white p-4 sm:p-6 rounded shadow-lg w-full max-w-xs sm:max-w-md md:max-w-lg">
+    <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-4">Add Event</h2>
 
-          {/* Category selection */}
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700 mb-1">Category</label>
-            <select
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
-              className="border border-gray-300 rounded px-4 py-2 w-full"
-            >
-              <option value="">Select a category</option>
-              <option value="meeting">Meeting</option>
-              <option value="conference">Conference</option>
-              <option value="birthday">Birthday</option>
-            </select>
-          </div>
+    {/* Category selection */}
+    <div className="mb-4">
+      <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
+        Category
+      </label>
+      <select
+        value={category}
+        onChange={(e) => setCategory(e.target.value)}
+        className="border border-gray-300 rounded px-2 py-1 sm:px-4 sm:py-2 w-full"
+      >
+        <option value="">Select a category</option>
+        <option value="meeting">Meeting</option>
+        <option value="conference">Conference</option>
+        <option value="birthday">Birthday</option>
+      </select>
+    </div>
 
-          {/* Description */}
-          <textarea
-            placeholder="Description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            className="border border-gray-300 rounded px-4 py-2 w-full mb-4"
-          />
+    {/* Description */}
+    <textarea
+      placeholder="Description"
+      value={description}
+      onChange={(e) => setDescription(e.target.value)}
+      className="border border-gray-300 rounded px-2 py-1 sm:px-4 sm:py-2 w-full mb-4 text-xs sm:text-sm"
+    />
 
-          {/* Date and Time Inputs */}
-          <div className="flex gap-2 mb-4">
-            <div className="w-1/2">
-              <label className="block text-sm font-medium text-gray-700 mb-1">Start Date</label>
-              <input
-                type="date"
-                value={startDate}
-                onChange={(e) => setStartDate(e.target.value)}
-                className="border border-gray-300 rounded px-4 py-2 w-full"
-              />
-            </div>
-            <div className="w-1/2">
-              <label className="block text-sm font-medium text-gray-700 mb-1">Start Time</label>
-              <input
-                type="time"
-                value={startTime}
-                onChange={(e) => setStartTime(e.target.value)}
-                className="border border-gray-300 rounded px-4 py-2 w-full"
-              />
-            </div>
-          </div>
-
-          <div className="flex gap-2 mb-4">
-            <div className="w-1/2">
-              <label className="block text-sm font-medium text-gray-700 mb-1">End Date</label>
-              <input
-                type="date"
-                value={endDate}
-                onChange={(e) => setEndDate(e.target.value)}
-                className="border border-gray-300 rounded px-4 py-2 w-full"
-              />
-            </div>
-            <div className="w-1/2">
-              <label className="block text-sm font-medium text-gray-700 mb-1">End Time</label>
-              <input
-                type="time"
-                value={endTime}
-                onChange={(e) => setEndTime(e.target.value)}
-                className="border border-gray-300 rounded px-4 py-2 w-full"
-              />
-            </div>
-          </div>
-
-          {/* Color Picker */}
-          <input
-            type="color"
-            value={color}
-            onChange={(e) => setColor(e.target.value)}
-            className="w-full h-10 mb-4"
-          />
-
-          {/* Buttons */}
-          <button
-            onClick={handleSubmit}
-            className="bg-blue-500 text-white px-4 py-2 rounded w-full mb-2"
-          >
-            Add Event
-          </button>
-          <button
-            onClick={onClose}
-            className="bg-gray-300 text-black px-4 py-2 rounded w-full"
-          >
-            Close
-          </button>
-        </div>
+    {/* Date and Time Inputs */}
+    <div className="flex flex-col sm:flex-row gap-2 mb-4">
+      <div className="w-full sm:w-1/2">
+        <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
+          Start Date
+        </label>
+        <input
+          type="date"
+          value={startDate}
+          onChange={(e) => setStartDate(e.target.value)}
+          className="border border-gray-300 rounded px-2 py-1 sm:px-4 sm:py-2 w-full"
+        />
       </div>
+      <div className="w-full sm:w-1/2">
+        <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
+          Start Time
+        </label>
+        <input
+          type="time"
+          value={startTime}
+          onChange={(e) => setStartTime(e.target.value)}
+          className="border border-gray-300 rounded px-2 py-1 sm:px-4 sm:py-2 w-full"
+        />
+      </div>
+    </div>
+
+    <div className="flex flex-col sm:flex-row gap-2 mb-4">
+      <div className="w-full sm:w-1/2">
+        <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
+          End Date
+        </label>
+        <input
+          type="date"
+          value={endDate}
+          onChange={(e) => setEndDate(e.target.value)}
+          className="border border-gray-300 rounded px-2 py-1 sm:px-4 sm:py-2 w-full"
+        />
+      </div>
+      <div className="w-full sm:w-1/2">
+        <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
+          End Time
+        </label>
+        <input
+          type="time"
+          value={endTime}
+          onChange={(e) => setEndTime(e.target.value)}
+          className="border border-gray-300 rounded px-2 py-1 sm:px-4 sm:py-2 w-full"
+        />
+      </div>
+    </div>
+
+    {/* Color Picker */}
+    <input
+      type="color"
+      value={color}
+      onChange={(e) => setColor(e.target.value)}
+      className="w-full h-8 sm:h-10 mb-4"
+    />
+
+    {/* Buttons */}
+    <button
+      onClick={handleSubmit}
+      className="bg-blue-500 text-white px-2 py-1 sm:px-4 sm:py-2 rounded w-full mb-2 text-xs sm:text-sm"
+    >
+      Add Event
+    </button>
+    <button
+      onClick={onClose}
+      className="bg-gray-300 text-black px-2 py-1 sm:px-4 sm:py-2 rounded w-full text-xs sm:text-sm"
+    >
+      Close
+    </button>
+  </div>
+</div>
+
     </>
   );
 };
